@@ -1,6 +1,6 @@
 variable "AZDO_PERSONAL_ACCESS_TOKEN" {
   //type = list
-  default = "xxxxxx"
+  default = "h7myz55agrh7smiu3kn4ijw5ls6ytuudgz6htqklm6h7rmjpeq3a"
 }
 variable "AZDO_ORG_SERVICE_URL" {
   default = "https://dev.azure.com/shmat0001"
