@@ -35,7 +35,7 @@ resource "azurerm_resource_group" "main" {
   //value="justforfun"
 }
 resource "azuredevops_project" "project" {
-  name       = "AKSTerraFormDemo"
+  name       = "AKSTerraFormDemo2"
   visibility         = "private"
   version_control    = "Git"
   work_item_template = "Agile"
@@ -76,7 +76,7 @@ resource "azuredevops_build_definition" "build" {
     repo_type   = "TfsGit"
     repo_id     = azuredevops_git_repository.repository.id
     branch_name = azuredevops_git_repository.repository.default_branch
-    yml_path    = "azure-pipelines.yml"
+    yml_path    = "./pipeline/azure-pipelines.yml"
   }
 
   variable_groups = [
