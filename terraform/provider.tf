@@ -32,13 +32,19 @@ resource "azurerm_resource_group" "main" {
   location = var.region
   //value="justforfun"
 }
+resource "azuredevops_project" "project" {
+  name       = "akswithterraformdemo"
+  visibility         = "private"
+  version_control    = "Git"
+  work_item_template = "Agile"
+}
 resource "azuredevops_git_repository" "repository" {
   project_id           = azuredevops_project.project.id
   name                 = "akswithterraform"
   initialization {
     init_type = "Import"
     source_type = "Git"
-    source_url = "https://github.com/rajeshm9/akswithterraform.git"
+    source_url = "https://github.com/ShubhasisMathur/akswithterraform.git"
   }
 }
 
