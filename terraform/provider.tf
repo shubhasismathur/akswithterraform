@@ -6,19 +6,21 @@ terraform {
     }
   }
 }
+
+
 provider "azurerm" {
   features {}
-  subscription_id = "4aff0984-efd7-4b54-9564-652d0338fa3a"
-  client_id       = "af4a58c9-56a1-4830-892c-4f0e45b5bf03"
+  subscription_id = "bc96fb25-0001-4aeb-a9b7-4b49f30c94f5"
+  client_id       = "b04847ea-3f78-44c4-9556-d7fe0daa3560"
   //client_id = var.client_id
-client_secret   = "h~~3.GkyfNV5ZFnX35D4O-LJnOqF9MObbT"
-tenant_id       = "72f988bf-86f1-41af-91ab-2d7cd011db47"
+  client_secret   = "OEGu4gWYY7cEDZ38ggcIFhB9BmH8-4VBHF"
+  tenant_id       = "79719c46-3f53-4d47-abc3-8354d0839c85"
 }
-
+/* 
 module "AKSCluster" {
   source = "./module"
 }
-
+ */
 
 provider "azuredevops" {
   version = ">= 0.0.1"
@@ -32,18 +34,18 @@ resource "azurerm_resource_group" "main" {
   //value="justforfun"
 }
 resource "azuredevops_project" "project" {
-  name       = "DemoforAKSInfra"
+  name       = "AKSTerraForm-R1"
   visibility         = "private"
   version_control    = "Git"
   work_item_template = "Agile"
 }
 resource "azuredevops_git_repository" "repository" {
   project_id           = azuredevops_project.project.id
-  name                 = "microservices-reference-implementation"
+  name                 = "akswithterraform"
   initialization {
     init_type = "Import"
     source_type = "Git"
-    source_url = "https://github.com/ShubhasisMathur/microservices-reference-implementation.git"
+    source_url = "https://github.com/rajeshm9/akswithterraform.git"
   }
 }
 

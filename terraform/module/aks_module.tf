@@ -17,14 +17,15 @@ module "network" {
 }
 
 data "azuread_group" "aks_cluster_admins" {
-  name = "AKS-cluster-admins"
+  name = "myAKSAdminGroup"
 }
+
 
 module "aks" {
   source                           = "Azure/aks/azurerm"
   resource_group_name              = azurerm_resource_group.example.name
-  client_id                        = "d15be8ea-691f-4c20-8f32-8ea1a99401a0"
-  client_secret                    = "OM_Mw-54ijM8KS1T3pET4XJIK~fk9UUZeo"
+  client_id                        = "b04847ea-3f78-44c4-9556-d7fe0daa3560"
+  client_secret                    = "OEGu4gWYY7cEDZ38ggcIFhB9BmH8-4VBHF"
   kubernetes_version               = "1.19.7"
   orchestrator_version             = "1.19.7"
   prefix                           = "prefix"
