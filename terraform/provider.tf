@@ -35,7 +35,7 @@ resource "azurerm_resource_group" "main" {
   //value="justforfun"
 }
 resource "azuredevops_project" "project" {
-  name       = "AKSTerraForm"
+  name       = "AKSTerraFormDemo"
   visibility         = "private"
   version_control    = "Git"
   work_item_template = "Agile"
