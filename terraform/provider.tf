@@ -16,19 +16,10 @@ provider "azurerm" {
   client_secret   = "OEGu4gWYY7cEDZ38ggcIFhB9BmH8-4VBHF"
   tenant_id       = "79719c46-3f53-4d47-abc3-8354d0839c85"
 }
-<<<<<<< HEAD
-
 //module "AKSCluster" {
  // source = "./module"
 //}
 
-=======
-/* 
-module "AKSCluster" {
-  source = "./module"
-}
- */
->>>>>>> dd9bd302ea9bf9edc14147f9ce45077574481732
 
 provider "azuredevops" {
   version = ">= 0.0.1"
@@ -40,16 +31,6 @@ resource "azurerm_resource_group" "main" {
   name     = "${var.prefix}-resources"
   location = var.region
   //value="justforfun"
-}
-resource "azuredevops_project" "project" {
-<<<<<<< HEAD
-  name       = "TerraformAKS"
-=======
-  name       = "AKSTerraForm-R1"
->>>>>>> dd9bd302ea9bf9edc14147f9ce45077574481732
-  visibility         = "private"
-  version_control    = "Git"
-  work_item_template = "Agile"
 }
 resource "azuredevops_git_repository" "repository" {
   project_id           = azuredevops_project.project.id
