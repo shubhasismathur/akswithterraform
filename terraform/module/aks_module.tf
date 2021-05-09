@@ -24,8 +24,8 @@ data "azuread_group" "aks_cluster_admins" {
 module "aks" {
   source                           = "Azure/aks/azurerm"
   resource_group_name              = azurerm_resource_group.example.name
-  client_id                        = "b04847ea-3f78-44c4-9556-d7fe0daa3560"
-  client_secret                    = "OEGu4gWYY7cEDZ38ggcIFhB9BmH8-4VBHF"
+  client_id                        = "${var.CLIENT_ID}"
+  client_secret                    = "${var.CLIENT_SEC}"
   kubernetes_version               = "1.19.7"
   orchestrator_version             = "1.19.7"
   prefix                           = "prefix"

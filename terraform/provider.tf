@@ -10,16 +10,18 @@ terraform {
 
 provider "azurerm" {
   features {}
-  subscription_id = "bc96fb25-0001-4aeb-a9b7-4b49f30c94f5"
-  client_id       = "b04847ea-3f78-44c4-9556-d7fe0daa3560"
+  subscription_id = "${var.SUB_ID}"
+  client_id       = "${var.CLIENT_ID}"
   //client_id = var.client_id
-  client_secret   = "OEGu4gWYY7cEDZ38ggcIFhB9BmH8-4VBHF"
-  tenant_id       = "79719c46-3f53-4d47-abc3-8354d0839c85"
+  client_secret   = "${var.CLIENT_SEC}"
+  tenant_id       = "${var.TENANT_ID}"
 }
-//module "AKSCluster" {
- // source = "./module"
-//}
 
+/*
+module "AKSCluster" {
+  source = "./module"
+}
+ */
 
 provider "azuredevops" {
   version = ">= 0.0.1"
@@ -33,7 +35,7 @@ resource "azurerm_resource_group" "main" {
   //value="justforfun"
 }
 resource "azuredevops_project" "project" {
-  name       = "akswithterraformdemo"
+  name       = "AKSTerraForm"
   visibility         = "private"
   version_control    = "Git"
   work_item_template = "Agile"
@@ -45,6 +47,7 @@ resource "azuredevops_git_repository" "repository" {
     init_type = "Import"
     source_type = "Git"
     source_url = "https://github.com/ShubhasisMathur/akswithterraform.git"
+  
   }
 }
 
